@@ -1,0 +1,2 @@
+The pages of this portfolio should have a Home, About, Hobbies, Experience, etc. kung ano gusto mo. Depends na kung gusto mong gawing pang work or pang hobby, its up to you.
+pero dapat mas specific ang ilalagay mo diyan.
