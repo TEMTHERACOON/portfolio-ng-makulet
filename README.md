@@ -103,9 +103,38 @@ and Discord URLs there.
 
 ## Deployment
 
+**Live site:** https://portfolio-ng-makulet.vercel.app
+**Repository:** https://github.com/TEMTHERACOON/portfolio-ng-makulet
+
 `vercel.json` rewrites every route to `index.html` so the client-side router
-works on refresh. Deploy with:
+works on refresh. Deploy manually with:
 
 ```bash
 npx vercel --prod
 ```
+
+### Auto-deploy on push
+
+Pushing to `main` deploys to production automatically via a local git
+`post-push` hook at `.git/hooks/post-push`. It runs `npx vercel --prod --yes`
+and skips the deploy when the pushed commit is already live.
+
+```bash
+git push origin main   # -> builds and promotes production
+```
+
+The hook is local to this clone (`.git/hooks/` is never committed), so each
+machine that pushes needs its own copy.
+
+### Enabling the native Vercel Git integration
+
+`npx vercel git connect` fails with *"Failed to connect … Make sure you have
+access to the repository"* because the Vercel GitHub App is not installed for
+this repository. To switch to upstream Git integration (which also gives
+preview deployments for pull requests):
+
+1. Install the Vercel GitHub App on the repo —
+   <https://github.com/apps/vercel/installations/new> — and grant it access to
+   `portfolio-ng-makulet`.
+2. Re-run `npx vercel git connect` in this directory.
+3. Remove `.git/hooks/post-push` so the two do not double-deploy.
