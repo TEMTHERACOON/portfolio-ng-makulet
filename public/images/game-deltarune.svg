@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2a1b"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <circle cx="200" cy="170" r="92" fill="none" stroke="#faeb92" stroke-width="6" opacity="0.9"/>
+  <path d="M200 110 L238 170 L200 230 L162 170 Z" fill="#faeb92" opacity="0.85"/>
+  <text x="200" y="310" font-family="Geist Mono, monospace" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle" opacity="1" letter-spacing="1">DELTARUNE</text>
+  <text x="200" y="340" font-family="Roboto, sans-serif" font-size="15" font-weight="500" fill="#faeb92" text-anchor="middle" opacity="1" letter-spacing="1">Toby Fox</text>
+  </svg>

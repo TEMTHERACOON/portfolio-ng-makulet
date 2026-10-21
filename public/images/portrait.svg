@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750" fill="none">
+  <defs>
+    <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b0b2e"/>
+      <stop offset="0.55" stop-color="#2a0f44"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="pb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9929EA" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ff5fcf" stop-opacity="0.65"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#pg)"/>
+  <circle cx="300" cy="300" r="130" fill="url(#pb)"/>
+  <path d="M110 750c0-125 85-190 190-190s190 65 190 190z" fill="url(#pb)"/>
+  <rect x="24" y="24" width="552" height="702" rx="28" stroke="#ff5fcf" stroke-opacity="0.5" stroke-width="2"/>
+  <text x="300" y="700" font-family="Geist Mono, monospace" font-size="22" font-weight="700" fill="#faeb92" text-anchor="middle" opacity="1" letter-spacing="1">PHOTO PLACEHOLDER</text>
+  <text x="300" y="730" font-family="Roboto, sans-serif" font-size="18" font-weight="400" fill="#ffffff" text-anchor="middle" opacity="0.65" letter-spacing="1">profile.jpg</text>
+  </svg>
