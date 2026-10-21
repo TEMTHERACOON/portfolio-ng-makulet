@@ -21,7 +21,7 @@ export function SideNav({ onNavigate }: SideNavProps) {
                 {isActive && (
                   <span
                     aria-hidden="true"
-                    className="absolute -left-3 top-1/2 h-1/2 w-1 -translate-y-1/2 rounded-full bg-header"
+                    className="absolute top-1/2 -left-3 h-1/2 w-1 -translate-y-1/2 rounded-full bg-header"
                   />
                 )}
                 {item.label}

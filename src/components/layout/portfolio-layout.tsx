@@ -4,7 +4,6 @@ import { Menu, X } from "lucide-react"
 import { SideNav } from "@/components/layout/side-nav"
 import { Separator } from "@/components/ui/separator"
 import { profile } from "@/data/portfolio"
-import { cn } from "cn"
 
 export function PortfolioLayout() {
   const [open, setOpen] = useState(false)
@@ -94,14 +93,4 @@ export function PortfolioLayout() {
       </main>
     </div>
   )
-}
-
-export function PageShell({
-  children,
-  className,
-}: {
-  children: React.ReactNode
-  className?: string
-}) {
-  return <div className={cn("flex flex-col gap-10", className)}>{children}</div>
 }

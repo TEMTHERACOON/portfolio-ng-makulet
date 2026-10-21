@@ -15,7 +15,7 @@ export function TitlePage() {
           />
           <span
             aria-hidden="true"
-            className="absolute -bottom-3 -right-3 rounded-xl border border-bullet/60 bg-black px-3 py-1 font-heading text-[11px] text-bullet"
+            className="absolute -right-3 -bottom-3 rounded-xl border border-bullet/60 bg-black px-3 py-1 font-heading text-[11px] text-bullet"
           >
             ★ IT&apos;Z ME
           </span>
@@ -23,7 +23,10 @@ export function TitlePage() {
 
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-3">
-            <span aria-hidden="true" className="text-xl leading-none text-bullet">
+            <span
+              aria-hidden="true"
+              className="text-xl leading-none text-bullet"
+            >
               ★
             </span>
             <span className="font-heading text-xs tracking-[0.25em] text-white/60">
@@ -31,7 +34,7 @@ export function TitlePage() {
             </span>
           </div>
 
-          <h1 className="font-heading text-3xl leading-tight text-header text-glow-header sm:text-4xl lg:text-5xl">
+          <h1 className="text-glow-header font-heading text-3xl leading-tight text-header sm:text-4xl lg:text-5xl">
             {profile.name}
           </h1>
 

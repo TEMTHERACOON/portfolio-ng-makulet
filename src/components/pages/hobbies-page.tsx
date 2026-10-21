@@ -16,7 +16,10 @@ export function HobbiesPage() {
       {hobbies.map((hobby) => (
         <article key={hobby.id} className="flex flex-col gap-8">
           <div className="flex items-center gap-3">
-            <span aria-hidden="true" className="text-xl leading-none text-bullet">
+            <span
+              aria-hidden="true"
+              className="text-xl leading-none text-bullet"
+            >
               ✪
             </span>
             <h2 className="font-heading text-xl text-header sm:text-2xl">

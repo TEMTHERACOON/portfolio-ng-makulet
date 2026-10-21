@@ -26,7 +26,10 @@ export function ContactPage() {
           const Icon = icons[item.id]
 
           return (
-            <Card key={item.id} className="gap-4 transition-colors hover:ring-link/40">
+            <Card
+              key={item.id}
+              className="gap-4 transition-colors hover:ring-link/40"
+            >
               <CardContent className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex size-10 items-center justify-center rounded-xl border border-header/60 text-header">
@@ -44,15 +47,20 @@ export function ContactPage() {
                   <a
                     href={item.href}
                     target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="inline-link break-all font-heading text-base"
+                    rel={
+                      item.href.startsWith("http") ? "noreferrer" : undefined
+                    }
+                    className="inline-link font-heading text-base break-all"
                   >
                     {item.value}
                   </a>
 
                   {item.photo && (
                     <Avatar className="size-14">
-                      <AvatarImage src={item.photo} alt={item.photoAlt ?? item.platform} />
+                      <AvatarImage
+                        src={item.photo}
+                        alt={item.photoAlt ?? item.platform}
+                      />
                       <AvatarFallback>KC</AvatarFallback>
                     </Avatar>
                   )}

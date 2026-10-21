@@ -30,7 +30,8 @@ export const navigation: NavItem[] = [
 
 export const profile = {
   name: "ITZ KIRSTEN ELMY S. CAMPOY",
-  tagline: "Digital artist turned graphic designer, part-time tarpaulin printer and full-time overthinker.",
+  tagline:
+    "Digital artist turned graphic designer, part-time tarpaulin printer and full-time overthinker.",
   photo: "/images/portrait.svg",
   photoAlt: "Portrait of Itz Kirsten Elmy S. Campoy",
 }
@@ -60,17 +61,44 @@ export const hobbies = [
       "I was originally a digital artist, but branched out to graphic design. Why? Well professionally, I needed it for my part-time job to design templates for tarpaulins. Personally, I love seeing those high-fashion magazine covers and wanted to replicate them! I have an account showcasing my amatuer designs!",
     ],
     links: [
-      { label: "FACEBOOK", href: "https://www.facebook.com/kirsten.elmy.campoy" },
+      {
+        label: "FACEBOOK",
+        href: "https://www.facebook.com/kirsten.elmy.campoy",
+      },
       { label: "TIKTOK", href: "https://www.tiktok.com/@itzkirsten" },
     ],
     galleryTitle: "MY GRAPHIC WORKS",
     gallery: [
-      { src: "/images/work-magazine-cover.svg", title: "HIGH-FASHION COVER", caption: "Magazine cover study" },
-      { src: "/images/work-tarpaulin.svg", title: "TARPAULIN TEMPLATE", caption: "Megaprints Balayan" },
-      { src: "/images/work-poster.svg", title: "EVENT POSTER", caption: "Layout exploration" },
-      { src: "/images/work-logo.svg", title: "LOGO MARK", caption: "Brand identity practice" },
-      { src: "/images/work-banner.svg", title: "SOCIAL BANNER", caption: "Digital kit" },
-      { src: "/images/work-brand-kit.svg", title: "BRAND KIT", caption: "Colour + type pairing" },
+      {
+        src: "/images/work-magazine-cover.svg",
+        title: "HIGH-FASHION COVER",
+        caption: "Magazine cover study",
+      },
+      {
+        src: "/images/work-tarpaulin.svg",
+        title: "TARPAULIN TEMPLATE",
+        caption: "Megaprints Balayan",
+      },
+      {
+        src: "/images/work-poster.svg",
+        title: "EVENT POSTER",
+        caption: "Layout exploration",
+      },
+      {
+        src: "/images/work-logo.svg",
+        title: "LOGO MARK",
+        caption: "Brand identity practice",
+      },
+      {
+        src: "/images/work-banner.svg",
+        title: "SOCIAL BANNER",
+        caption: "Digital kit",
+      },
+      {
+        src: "/images/work-brand-kit.svg",
+        title: "BRAND KIT",
+        caption: "Colour + type pairing",
+      },
     ] satisfies GalleryItem[],
   },
   {
@@ -84,12 +112,32 @@ export const hobbies = [
     links: [],
     galleryTitle: "GAMES I PLAY",
     gallery: [
-      { src: "/images/game-hollow-knight.svg", title: "HOLLOW KNIGHT", caption: "Metroidvania" },
-      { src: "/images/game-dress-to-impress.svg", title: "DRESS TO IMPRESS", caption: "Fashion roleplay" },
+      {
+        src: "/images/game-hollow-knight.svg",
+        title: "HOLLOW KNIGHT",
+        caption: "Metroidvania",
+      },
+      {
+        src: "/images/game-dress-to-impress.svg",
+        title: "DRESS TO IMPRESS",
+        caption: "Fashion roleplay",
+      },
       { src: "/images/game-deltarune.svg", title: "DELTARUNE", caption: "RPG" },
-      { src: "/images/game-dressmaker.svg", title: "DRESSMAKER", caption: "Design RPG" },
-      { src: "/images/game-genshin-impact.svg", title: "GENSHIN IMPACT", caption: "Action RPG" },
-      { src: "/images/game-zzz.svg", title: "ZENLESS ZONE ZERO", caption: "Action RPG" },
+      {
+        src: "/images/game-dressmaker.svg",
+        title: "DRESSMAKER",
+        caption: "Design RPG",
+      },
+      {
+        src: "/images/game-genshin-impact.svg",
+        title: "GENSHIN IMPACT",
+        caption: "Action RPG",
+      },
+      {
+        src: "/images/game-zzz.svg",
+        title: "ZENLESS ZONE ZERO",
+        caption: "Action RPG",
+      },
     ] satisfies GalleryItem[],
   },
 ]
@@ -140,7 +188,8 @@ export const contacts: {
   items: ContactItem[]
 } = {
   title: "CONTACTS",
-  intro: "Got a project, a commission, or just want to say hi? Here is every way to reach me.",
+  intro:
+    "Got a project, a commission, or just want to say hi? Here is every way to reach me.",
   items: [
     {
       id: "facebook",

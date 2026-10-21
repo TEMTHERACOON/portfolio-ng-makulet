@@ -57,7 +57,9 @@ export function HorizontalGallery({
   return (
     <div className={cn("relative", className)}>
       <div className="flex items-center justify-between gap-4">
-        <p className="font-heading text-xs tracking-[0.2em] text-bullet">{label}</p>
+        <p className="font-heading text-xs tracking-[0.2em] text-bullet">
+          {label}
+        </p>
         <div className="flex items-center gap-2">
           <button
             type="button"
@@ -85,7 +87,7 @@ export function HorizontalGallery({
         role="region"
         aria-label={label}
         tabIndex={0}
-        className="no-scrollbar mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2"
+        className="mt-4 no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2"
       >
         {items.map((item) => (
           <figure
@@ -103,9 +105,13 @@ export function HorizontalGallery({
               className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-0.5 bg-linear-to-t from-black via-black/80 to-transparent p-3">
-              <span className="font-heading text-xs text-white">{item.title}</span>
+              <span className="font-heading text-xs text-white">
+                {item.title}
+              </span>
               {item.caption && (
-                <span className="text-[11px] text-bullet/90">{item.caption}</span>
+                <span className="text-[11px] text-bullet/90">
+                  {item.caption}
+                </span>
               )}
             </figcaption>
           </figure>
