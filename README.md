@@ -116,12 +116,19 @@ npx vercel --prod
 ### Auto-deploy on push
 
 Pushing to `main` deploys to production automatically via a local git
-`post-push` hook at `.git/hooks/post-push`. It runs `npx vercel --prod --yes`
-and skips the deploy when the pushed commit is already live.
+`reference-transaction` hook at `.git/hooks/reference-transaction`. It runs
+`npx vercel --prod --yes`, skips when the pushed commit is already live, and
+skips when the working tree is dirty.
 
 ```bash
 git push origin main   # -> builds and promotes production
 ```
+
+> **Why `reference-transaction`?** Git removed the `post-push` hook in the
+> 2.54 hook rework — it is no longer a known hook event and `git push` never
+> invokes it. `reference-transaction` is the documented replacement: pushing
+> updates the remote-tracking ref `refs/remotes/origin/main`, which the hook
+> watches for.
 
 The hook is local to this clone (`.git/hooks/` is never committed), so each
 machine that pushes needs its own copy.
@@ -137,4 +144,4 @@ preview deployments for pull requests):
    <https://github.com/apps/vercel/installations/new> — and grant it access to
    `portfolio-ng-makulet`.
 2. Re-run `npx vercel git connect` in this directory.
-3. Remove `.git/hooks/post-push` so the two do not double-deploy.
+3. Remove `.git/hooks/reference-transaction` so the two do not double-deploy.
