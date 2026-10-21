@@ -2,41 +2,35 @@ Project requirements
 
 FEATURES:
 -a side navigation bar contains the following buttons:
-    TITLE PAGE
-    ABOUT PAGE
+    1. TITLE PAGE
+    2. ABOUT PAGE
        -HOBBIES
        -EXP
        -CONTACT
 
--text on hover will get 10px bigger and turn from white to
--GRAPHIC DESIGN will have each a photo gallery List of all my graphic works 
--GAMING will have horizontal scrolling gallery of all the games I play
 
 
- ★Title page: "ITZ KIRSTEN ELMY S. CAMPOY" [photo at left side].
+
+ ★Title page: NAME [photo at left side].
 
 HEADER: ★About Page:
-    -WELCOME! This page will serve as my personal portfolio! Browse as you please, learn intersting things about me and get to know me! 
+    -content div 
 
     HEADER: ✪HOBBIES SUB PAGE
           [PICTURE] - GRAPHIC DESIGN
-          - I was originally a digital artist, but branched out to graphic design. Why? Well professionally, I  needed it for my part-time job to design templates for tarpaulins. Personally, I love seeing those high-fashion magazine covers and wanted to replicate them! I have an account showcasing my amatuer designs!
-          *INSERT FB & TIKTOK LINK*
+            -content div 
+          
+          
 
           [PICTURE] - GAMING
-          - Im no pro gamer, I just like RPG games with combat elements! I also like games that design stuff!
-            [photogallery of logos of games I play - HOLLOWKNIGHT, DRESS TO IMPRESS, DELTARUNE, DRESSMAKER, GENSHIN IMPACT, ZZZ]
-
+         -content div 
+            - horizontal scrolling gallery of 5 pictures
+            
     HEADER: ✪EXPERIENCE SUB PAGE
-        - PART-TIME TARPAULIN PRINTER AND GRAPHIC DESIGNER AT MEGAPRINTS BALAYAN (2026-ongoing)
-        - CREATED AN INTERACTABLE PHOTOBOOTH WEBSITE FOR AN ENTREPRENEURSHIP SCHOOL PROJECT(2025-2026)
-        - MADE A SIMPLE SCHOOL WEBSITE WITH LEI JUSTINE LAYLAY FOR AN ICT STRAND PROJECT (2025)
+        -content div 
 
     HEADER: ✪CONTACTS
-    -[facebook logo] KIRSTEN ELMY CAMPOY (name has link of my fb acc) [PICTURE OF FB PROFILE]
-    -[gmail logo] kirstencampoy@gmail.com
-    -[phone logo] 0960-871-5937
-    -[discord logo] itzkc_doingtomfoolery (name has link of my discord acc) [PICTURE OF DISCORD PROFILE]
+    -content div 
 
         
 

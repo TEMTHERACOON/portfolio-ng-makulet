@@ -49,6 +49,17 @@ export const about = {
     { label: "FOCUS", value: "Print + Digital" },
     { label: "STATUS", value: "Open to commissions" },
   ],
+  toolkit: [
+    { label: "BRANDING", value: "Logo marks, brand kits, colour systems" },
+    { label: "LAYOUT", value: "Tarpaulin and banner templates" },
+    { label: "PUBLICATION", value: "Magazine covers and editorial pieces" },
+    { label: "DIGITAL", value: "Social kits, posters, web UI" },
+  ],
+  currently: [
+    "Working on a portfolio of amateur editorial covers.",
+    "Printing tarpaulin layouts for local businesses around Balayan.",
+    "Playing RPGs and studying their combat design.",
+  ],
 }
 
 export const hobbies = [
@@ -111,6 +122,7 @@ export const hobbies = [
     ],
     links: [],
     galleryTitle: "GAMES I PLAY",
+    // The brief asks for a horizontal scrolling gallery of 5 pictures.
     gallery: [
       {
         src: "/images/game-hollow-knight.svg",
@@ -131,11 +143,6 @@ export const hobbies = [
       {
         src: "/images/game-genshin-impact.svg",
         title: "GENSHIN IMPACT",
-        caption: "Action RPG",
-      },
-      {
-        src: "/images/game-zzz.svg",
-        title: "ZENLESS ZONE ZERO",
         caption: "Action RPG",
       },
     ] satisfies GalleryItem[],
@@ -185,11 +192,13 @@ export type ContactItem = {
 export const contacts: {
   title: string
   intro: string
+  email: string
   items: ContactItem[]
 } = {
   title: "CONTACTS",
   intro:
     "Got a project, a commission, or just want to say hi? Here is every way to reach me.",
+  email: "kirstencampoy@gmail.com",
   items: [
     {
       id: "facebook",

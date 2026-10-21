@@ -15,18 +15,29 @@ Built with **Vite + React + TypeScript**, **Tailwind CSS v4** and
     - `EXP`
     - `CONTACT`
 - **Title page** — name with the portrait photo on the left side.
-- **About page** — welcome copy + quick facts.
+- **About page** — welcome copy, quick facts, a "what I do" toolkit grid and a
+  "currently" list.
 - **Hobbies sub page**
   - *Graphic Design* — photo, write-up, Facebook + TikTok links and a
     horizontal gallery of every graphic work.
-  - *Gaming* — photo, write-up and a horizontal scrolling gallery of the
-    games played (Hollow Knight, Dress to Impress, Deltarune, Dressmaker,
-    Genshin Impact, Zenless Zone Zero).
+  - *Gaming* — photo, write-up and a horizontal scrolling gallery of **5**
+    games (Hollow Knight, Dress to Impress, Deltarune, Dressmaker, Genshin
+    Impact).
 - **Experience sub page** — Megaprints Balayan job, entrepreneurship
-  photo booth project and the ICT strand school website.
+  photo booth project and the ICT strand school website, laid out as a
+  timeline.
 - **Contacts** — Facebook (with profile picture), Gmail, Phone and Discord
-  (with profile picture).
+  (with profile picture), plus a validated message composer that builds a
+  pre-filled `mailto:` link.
 - Navigation links grow **10px** and turn from white to pink on hover.
+- **Page transitions** — every route fades and lifts in, with staggered
+  reveals on card grids.
+- **Scroll progress bar** and a **back to top** button.
+- **Light / dark theme toggle** — dark is the default look; the light theme
+  keeps the brand colours but deepens the pink and yellow for legibility.
+- **Responsive** — the sidebar collapses into a drawer on small screens.
+- **Accessible** — skip link, labelled controls, keyboard focus rings and
+  WCAG AA colour contrast in both themes.
 
 ## Design tokens
 
@@ -43,6 +54,10 @@ Built with **Vite + React + TypeScript**, **Tailwind CSS v4** and
 Tokens live in `src/index.css` as CSS variables (`--background`, `--header`,
 `--link`, `--bullet`, …) and are exposed to Tailwind as `bg-background`,
 `text-header`, `text-link`, `text-bullet`.
+
+Body copy uses a single `--content` ink variable (exposed as `text-content`)
+rather than hard-coded white, so the same components render correctly in the
+light theme. Opacity modifiers work as usual — `text-content/70`.
 
 ## Getting started
 
@@ -64,7 +79,7 @@ src/
   components/
     layout/                   # shell + side navigation
     pages/                    # title, about, hobbies, experience, contact
-    shared/                   # page header, gallery, brand icons
+    shared/                   # page header, gallery, contact form, footer…
     ui/                       # shadcn/ui components
 public/images/                # images (placeholders — swap for real photos)
 ```

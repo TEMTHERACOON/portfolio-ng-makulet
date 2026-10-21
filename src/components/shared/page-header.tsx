@@ -24,7 +24,7 @@ export function PageHeader({
         </h1>
       </div>
       {subtitle && (
-        <p className="max-w-2xl text-sm leading-relaxed text-white/70">
+        <p className="max-w-2xl text-sm leading-relaxed text-content/70">
           {subtitle}
         </p>
       )}

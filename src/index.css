@@ -19,6 +19,10 @@
   --background: #000000;
   --foreground: #ffffff;
 
+  /* Content ink — every body copy colour derives from this so the palette
+     can flip to a light theme without touching a single component. */
+  --content: #ffffff;
+
   --card: #0c0c12;
   --card-foreground: #ffffff;
   --popover: #0c0c12;
@@ -63,11 +67,55 @@
   --sidebar-ring: #ff5fcf;
 }
 
-/* The portfolio is a dark-first design — the light/dark toggle keeps the same
-   palette so the layout never loses contrast. */
-.light,
+/* The dark theme is the default look of the portfolio — pure black with the
+   brand purple, pink and yellow accents. */
 .dark {
   color-scheme: dark;
+}
+
+/* The light theme keeps the same brand colours but deepens the pink and
+   yellow so they stay legible on a pale surface. */
+.light {
+  color-scheme: light;
+
+  --background: #f7f5fc;
+  --foreground: #14121c;
+  --content: #14121c;
+
+  --card: #ffffff;
+  --card-foreground: #14121c;
+  --popover: #ffffff;
+  --popover-foreground: #14121c;
+
+  --primary: #7c1fd4;
+  --primary-foreground: #ffffff;
+
+  --secondary: #ece7f7;
+  --secondary-foreground: #14121c;
+
+  --muted: #efeaf9;
+  --muted-foreground: #5d5673;
+
+  --accent: #e6e0f4;
+  --accent-foreground: #14121c;
+
+  --destructive: #d61f4a;
+  --border: #ded5ef;
+  --input: #d5cbe9;
+  --ring: #d6009a;
+
+  --header: #7c1fd4;
+  --link: #d6009a;
+  --bullet: #8a5e00;
+
+  --sidebar: #f7f5fc;
+  --sidebar-foreground: #14121c;
+  --sidebar-primary: #7c1fd4;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ece7f7;
+  --sidebar-accent-foreground: #d6009a;
+  --sidebar-border: #ded5ef;
+  --sidebar-ring: #d6009a;
 }
 
 @theme inline {
@@ -76,6 +124,7 @@
   --font-heading: "Geist Mono Variable", ui-monospace, monospace;
   --font-mono: "Geist Mono Variable", ui-monospace, monospace;
 
+  --color-content: var(--content);
   --color-header: var(--header);
   --color-link: var(--link);
   --color-bullet: var(--bullet);
@@ -146,7 +195,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: var(--background);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -164,13 +213,13 @@
   .nav-link {
     @apply font-heading text-base transition-all duration-200 ease-out;
     font-size: 1rem;
-    color: #ffffff;
+    color: var(--content);
   }
 
   .nav-link-sub {
     @apply font-heading text-sm transition-all duration-200 ease-out;
     font-size: 0.875rem;
-    color: #ffffff;
+    color: var(--content);
   }
 
   /* Active section keeps the header purple... */
@@ -240,6 +289,28 @@
   .bullet-list > li::marker {
     color: var(--bullet);
   }
+
+  /* The bordered "content div" wrapper used across every page section. */
+  .content-panel {
+    @apply relative rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-sm sm:p-8;
+  }
+
+  .content-panel::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 2rem;
+    width: 4rem;
+    height: 1px;
+    background: linear-gradient(to right, var(--header), transparent);
+  }
+
+  /* Inline star marker used in short callouts. */
+  .star-marker::before {
+    content: "★";
+    color: var(--bullet);
+    margin-inline-end: 0.5rem;
+  }
 }
 
 @layer utilities {
@@ -249,5 +320,82 @@
 
   .text-glow-link {
     text-shadow: 0 0 20px color-mix(in oklab, var(--link) 55%, transparent);
+  }
+
+  /* Hides the scrollbar on a scroll container while keeping it scrollable. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Thin, themed scrollbar for the horizontal galleries. */
+  .thin-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--header) 70%, black) transparent;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--header) 70%, black);
+    border-radius: 9999px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--link);
+  }
+}
+
+@layer components {
+  /* Route transition — every page fades and lifts in when the route changes. */
+  .page-enter {
+    animation: page-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Staggered reveal for grids and lists. */
+  .stagger-item {
+    animation: page-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--stagger-index, 0) * 70ms);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-enter,
+  .stagger-item {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

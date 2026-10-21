@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from "react"
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+} from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import type { GalleryItem } from "@/data/portfolio"
 import { cn } from "cn"
@@ -19,6 +25,7 @@ export function HorizontalGallery({
   const trackRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(false)
+  const [dragging, setDragging] = useState(false)
 
   const updateEdges = useCallback(() => {
     const track = trackRef.current
@@ -54,6 +61,40 @@ export function HorizontalGallery({
     })
   }
 
+  // Pointer drag-to-scroll. Mouse users can grab the strip and pull it along.
+  const dragState = useRef({ active: false, startX: 0, startScroll: 0 })
+
+  const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "touch") return
+
+    const track = trackRef.current
+    if (!track) return
+
+    dragState.current = {
+      active: true,
+      startX: event.clientX,
+      startScroll: track.scrollLeft,
+    }
+    setDragging(true)
+  }
+
+  const handlePointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!dragState.current.active) return
+
+    const track = trackRef.current
+    if (!track) return
+
+    const delta = event.clientX - dragState.current.startX
+    track.scrollLeft = dragState.current.startScroll - delta
+  }
+
+  const endDrag = () => {
+    if (!dragState.current.active) return
+
+    dragState.current.active = false
+    setDragging(false)
+  }
+
   return (
     <div className={cn("relative", className)}>
       <div className="flex items-center justify-between gap-4">
@@ -66,7 +107,7 @@ export function HorizontalGallery({
             onClick={() => scrollByAmount(-1)}
             disabled={!canScrollLeft}
             aria-label="Scroll gallery left"
-            className="inline-flex size-8 items-center justify-center rounded-full border border-border text-white transition-colors enabled:hover:border-link enabled:hover:text-link disabled:opacity-30"
+            className="inline-flex size-8 items-center justify-center rounded-full border border-border text-content transition-colors enabled:hover:border-link enabled:hover:text-link disabled:opacity-30"
           >
             <ChevronLeft className="size-4" />
           </button>
@@ -75,7 +116,7 @@ export function HorizontalGallery({
             onClick={() => scrollByAmount(1)}
             disabled={!canScrollRight}
             aria-label="Scroll gallery right"
-            className="inline-flex size-8 items-center justify-center rounded-full border border-border text-white transition-colors enabled:hover:border-link enabled:hover:text-link disabled:opacity-30"
+            className="inline-flex size-8 items-center justify-center rounded-full border border-border text-content transition-colors enabled:hover:border-link enabled:hover:text-link disabled:opacity-30"
           >
             <ChevronRight className="size-4" />
           </button>
@@ -87,7 +128,15 @@ export function HorizontalGallery({
         role="region"
         aria-label={label}
         tabIndex={0}
-        className="mt-4 no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onPointerLeave={endDrag}
+        className={cn(
+          "thin-scrollbar mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2",
+          dragging ? "cursor-grabbing select-none" : "cursor-grab"
+        )}
       >
         {items.map((item) => (
           <figure
@@ -105,7 +154,7 @@ export function HorizontalGallery({
               className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-0.5 bg-linear-to-t from-black via-black/80 to-transparent p-3">
-              <span className="font-heading text-xs text-white">
+              <span className="font-heading text-xs text-content">
                 {item.title}
               </span>
               {item.caption && (
